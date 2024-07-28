@@ -19,7 +19,7 @@ func Test_GetAllFolders(t *testing.T) {
 		  If not using sample.json -> Could generate data similar to the GenerateData() function in static.go.
 		*/
 
-		//Test 1 - Check number of returned folders and 1 folder correctly returned
+		//Test 1 - Check that the number of returned folders is 666 as expected.
 		testOrgId1 := "c1556e17-b7c0-45a3-a6ae-9546248fb17a"
 		req := &folders.FetchFolderRequest{
 			OrgID: uuid.FromStringOrNil(testOrgId1),
@@ -33,7 +33,7 @@ func Test_GetAllFolders(t *testing.T) {
 			t.Errorf("Get All Folders failed. Expected 666 folders, got %d folders", numFolders)
 		}
 
-		//Test 2 - Use different Org ID and check result
+		//Test 2 - Use different Org ID and check that the returned folder is correct.
 		testOrgId2 := "4212d618-66ff-468a-862d-ea49fef5e183"
 		expectedReturn := &folders.FetchFolderResponse{}
 		expectedReturn.Folders = append(expectedReturn.Folders, &folders.Folder{
