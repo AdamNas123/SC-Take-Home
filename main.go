@@ -13,8 +13,17 @@ func main() {
 		OrgID: uuid.FromStringOrNil(folders.DefaultOrgID),
 	}
 
-	//Calls the get all folders function to return all folders with the given Organisation UUID (provided as FetchFolderRequest type)
-	res, err := folders.GetAllFolders(req)
+	// //Calls the get all folders function to return all folders with the given Organisation UUID (provided as FetchFolderRequest type)
+	// res, err := folders.GetAllFolders(req)
+	// if err != nil {
+	// 	fmt.Printf("%v", err)
+	// 	return
+	// }
+	// //Prints the returned folders in the Pretty Print format.
+	// folders.PrettyPrint(res)
+
+	// Calls the get all folders function to return all folders with the given Organisation UUID (provided as FetchFolderRequest type)
+	res, err := folders.GetAllFoldersPaginated(req, "")
 	if err != nil {
 		fmt.Printf("%v", err)
 		return

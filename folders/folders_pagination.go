@@ -20,7 +20,7 @@ func GetAllFoldersPaginated(req *FetchFolderRequest, token string) (*FetchFolder
 	}
 
 	fs = append(fs, r...)
-	ffr := &FetchFolderResponsePaginated{Folders: fs, nextToken: nextToken}
+	ffr := &FetchFolderResponsePaginated{Folders: fs, NextToken: nextToken}
 	return ffr, nil
 }
 
@@ -54,9 +54,10 @@ func FetchAllFoldersByOrgIDPaginated(orgID uuid.UUID, token string) ([]*Folder, 
 
 	//Need to find the token of the next folder, which will be set as the start page index for the next response.
 	nextToken := ""
-	for i := currentFolder; i < len(folders); i++ {
+	for i := currentFolder + 1; i < len(folders); i++ {
 		if folders[i].OrgId == orgID {
 			nextToken = folders[i].Id.String()
+			break
 		}
 	}
 	return resFolder, nextToken, nil

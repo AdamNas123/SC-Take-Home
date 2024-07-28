@@ -12,5 +12,5 @@ type FetchFolderResponse struct {
 
 type FetchFolderResponsePaginated struct {
 	Folders   []*Folder
-	nextToken string
+	NextToken string
 }
