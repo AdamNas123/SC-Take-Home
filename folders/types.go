@@ -9,3 +9,8 @@ type FetchFolderRequest struct {
 type FetchFolderResponse struct {
 	Folders []*Folder
 }
+
+type FetchFolderResponsePaginated struct {
+	Folders   []*Folder
+	nextToken string
+}
